@@ -20,7 +20,6 @@ This data also ships with the scikit-learn library. There are 506 samples and 13
 The description of all the features is given below:
 
 `CRIM`: Per capita crime rate by town
-
 `ZN`: Proportion of residential land zoned for lots over 25,000 sq. ft
 
 `INDUS`: Proportion of non-retail business acres per town
@@ -44,3 +43,21 @@ The description of all the features is given below:
 `LSTAT`: Percentage of lower status of the population
 
 `MEDV`: Median value of owner-occupied homes in $1000s
+### Data Preprocessing:
+ * check the dataset shape and info
+ * check whether it has any null values in the dataset if so remove those
+### EDA Exploratory Data Analysis:
+ * Now we are analysis the dataset using matplotlib and seaborn to show the dist plot that represents the univariate distribution
+ * Creating correlation matrix and heat map based on the analysed dataset
+### Observation:
+ * To fit a linear regression model, we select those features which have a high correlation with our target variable MEDV . By looking at the correlation matrix we can see that RM has a strong positive correlation with MEDV (0.7) where as LSTAT has a high negative correlation with MEDV (-0.74).
+ * From the above coorelation plot we can see that MEDV is strongly correlated to LSTAT, RM
+ <img src="https://static.wixstatic.com/media/a27d24_569751c4af8a40bbb29eb9ffd20aab8c~mv2.jpg/v1/fill/w_940,h_269,al_c,q_90/a27d24_569751c4af8a40bbb29eb9ffd20aab8c~mv2.webp" width= "900"> 
+ 
+ * The prices increase as the value of RM increases linearly. There are few outliers and the data seems to be capped at 50.
+ * The prices tend to decrease with an increase in LSTAT. Though it doesn’t look to be following exactly a linear line.
+### Train Test Split:
+ * Prepare the dataset for training the model 
+ * Keeping `LSTAT`,`RM` in X and `MEDV` in Y
+ * Splitting X and Y as train and test datasets.We train the model with 80% of the samples and test with the remaining 20%. We do this to assess the model’s performance on unseen data. To split the data we use train_test_split function provided by scikit-learn library. We finally print the sizes of our training and test set to verify if the splitting has occurred properly.
+ * Checking their Performance by there RMSE and r2_score.
